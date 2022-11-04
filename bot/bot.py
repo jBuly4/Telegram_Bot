@@ -1,16 +1,14 @@
 import os
-from collections import defaultdict
-from dotenv import load_dotenv
 import telebot
+
+from dotenv import load_dotenv
+from state_manager import StateManager, LocationManager
 
 
 load_dotenv()
 bot_token = os.getenv('BOT_TOKEN')
 bot = telebot.TeleBot(bot_token)
-LOCATIONS = defaultdict(lambda: {})  # all new locations will be created with empty dict
 
-
-def get_state(message):
-    return USER_STATE[message.chat.id]
-
+states = StateManager()
+locations = LocationManager()
 
