@@ -27,3 +27,6 @@ class LocationManager:
     def update_location(self, user_id, rest_name, latitude, longitude):
         coordinates = Coordinates(latitude, longitude)
         self.LOCATIONS[user_id][rest_name] = coordinates
+
+    def delete_location(self, user_id):
+        self.LOCATIONS[user_id].clear()
